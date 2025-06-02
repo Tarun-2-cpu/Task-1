@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(rightDiv);
 
 
-
     const images = [
         { id: '1/5', color: 'blue', bg: '#ADD8E6' },
         { id: '2/5', color: 'blue', bg: '#6495ED' },
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { id: '4/5', color: 'green', bg: '#097969' },
         { id: '5/5', color: 'green', bg: '#023020' }
     ];
-
 
     // feature image container
     const featureImage = document.createElement('div')
@@ -73,9 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     thumbnailContainer.style.borderRadius = '10px';
 
 
-
     // buttons
-
     const buttonDiv = document.createElement('div')
     buttonDiv.className = 'button-container';
     buttonDiv.style.display = 'flex';
@@ -111,57 +107,59 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener('click', function () {
             console.log(button)
 
-            let filterImage = images.filter(image => {
-                return color === "All" || image.color === color.toLowerCase();
-            })
-            console.log(filterImage);
+                renderThumbnails(color);
 
-            thumbnailContainer.innerHTML = '';
-            filterImage.forEach(img => {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = img.color;
-                thumbnail.style.backgroundColor = img.bg;
-                thumbnail.style.width = '50px';
-                thumbnail.style.height = '50px';
-                thumbnail.style.border = '1px solid #ccc';
-                thumbnail.style.cursor = 'pointer';
-                thumbnail.textContent = img.id + ' ' + img.color;
-                thumbnail.style.textAlign = 'center';
-                thumbnail.style.color = 'white';
-                thumbnail.style.display = 'flex';
-                thumbnail.style.alignItems = 'center';
-                thumbnail.style.justifyContent = 'center';
-                thumbnail.style.fontSize = '14px';
-                thumbnail.style.width = '30%';
-                thumbnail.style.borderRadius = '10px';
+            // let filterImage = images.filter(image => {
+            //     return color === "All" || image.color === color.toLowerCase();
+            // })
+            // console.log(filterImage);
 
-                console.log(thumbnail);
-                thumbnailContainer.appendChild(thumbnail);
+            // thumbnailContainer.innerHTML = '';
+            // filterImage.forEach(img => {
+            //     const thumbnail = document.createElement('div');
+            //     thumbnail.className = img.color;
+            //     thumbnail.style.backgroundColor = img.bg;
+            //     thumbnail.style.width = '50px';
+            //     thumbnail.style.height = '50px';
+            //     thumbnail.style.border = '1px solid #ccc';
+            //     thumbnail.style.cursor = 'pointer';
+            //     thumbnail.textContent = img.id + ' ' + img.color;
+            //     thumbnail.style.textAlign = 'center';
+            //     thumbnail.style.color = 'white';
+            //     thumbnail.style.display = 'flex';
+            //     thumbnail.style.alignItems = 'center';
+            //     thumbnail.style.justifyContent = 'center';
+            //     thumbnail.style.fontSize = '14px';
+            //     thumbnail.style.width = '30%';
+            //     thumbnail.style.borderRadius = '10px';
 
-                thumbnail.addEventListener('click', function () {
-                    console.log(img)
-                    featureImage.style.backgroundColor = img.bg;
-                    featureImage.textContent = img.id + ' ' + img.color;
-                    featureImage.style.textAlign = 'center';
-                    featureImage.style.color = 'white';
-                    featureImage.style.display = 'flex';
-                    featureImage.style.alignItems = 'center';
-                    featureImage.style.justifyContent = 'center';
-                    featureImage.style.fontSize = '24px';
-                })
-            })
+            //     console.log(thumbnail);
+            //     thumbnailContainer.appendChild(thumbnail);
 
-            if (filterImage.length > 0) {
-                const firstImage = filterImage[0];
-                featureImage.style.backgroundColor = firstImage.bg;
-                featureImage.textContent = firstImage.id + ' ' + firstImage.color;
-                featureImage.style.textAlign = 'center';
-                featureImage.style.color = 'white';
-                featureImage.style.display = 'flex';
-                featureImage.style.alignItems = 'center';
-                featureImage.style.justifyContent = 'center';
-                featureImage.style.fontSize = '24px';
-            }
+            //     thumbnail.addEventListener('click', function () {
+            //         console.log(img)
+            //         featureImage.style.backgroundColor = img.bg;
+            //         featureImage.textContent = img.id + ' ' + img.color;
+            //         featureImage.style.textAlign = 'center';
+            //         featureImage.style.color = 'white';
+            //         featureImage.style.display = 'flex';
+            //         featureImage.style.alignItems = 'center';
+            //         featureImage.style.justifyContent = 'center';
+            //         featureImage.style.fontSize = '24px';
+            //     })
+            // })
+
+            // if (filterImage.length > 0) {
+            //     const firstImage = filterImage[0];
+            //     featureImage.style.backgroundColor = firstImage.bg;
+            //     featureImage.textContent = firstImage.id + ' ' + firstImage.color;
+            //     featureImage.style.textAlign = 'center';
+            //     featureImage.style.color = 'white';
+            //     featureImage.style.display = 'flex';
+            //     featureImage.style.alignItems = 'center';
+            //     featureImage.style.justifyContent = 'center';
+            //     featureImage.style.fontSize = '24px';
+            // }
         })
     })
 
@@ -194,59 +192,61 @@ document.addEventListener("DOMContentLoaded", function () {
         dropdown.addEventListener('change', function (e) {
             console.log(e.target.value)
 
-            let filterImage = images.filter(image => {
-                return e.target.value === "All" || image.color === e.target.value.toLowerCase();
-            })
-            console.log(filterImage);
+            // let filterImage = images.filter(image => {
+            //     return e.target.value === "All" || image.color === e.target.value.toLowerCase();
+            // })
+            // console.log(filterImage);
 
-            thumbnailContainer.innerHTML = '';
-            filterImage.forEach(img => {
-                const thumbnail = document.createElement('div');
-                thumbnail.className = img.color;
-                thumbnail.style.backgroundColor = img.bg;
-                thumbnail.style.width = '50px';
-                thumbnail.style.height = '50px';
-                thumbnail.style.border = '1px solid #ccc';
-                thumbnail.style.cursor = 'pointer';
-                thumbnail.textContent = img.id;
-                thumbnail.style.textAlign = 'center';
-                thumbnail.style.color = 'white';
-                thumbnail.style.display = 'flex';
-                thumbnail.style.alignItems = 'center';
-                thumbnail.style.justifyContent = 'center';
-                thumbnail.style.fontSize = '14px';
-                thumbnail.style.width = '30%';
-                thumbnail.style.borderRadius = '10px';
+            // thumbnailContainer.innerHTML = '';
+            // filterImage.forEach(img => {
+            //     const thumbnail = document.createElement('div');
+            //     thumbnail.className = img.color;
+            //     thumbnail.style.backgroundColor = img.bg;
+            //     thumbnail.style.width = '50px';
+            //     thumbnail.style.height = '50px';
+            //     thumbnail.style.border = '1px solid #ccc';
+            //     thumbnail.style.cursor = 'pointer';
+            //     thumbnail.textContent = img.id;
+            //     thumbnail.style.textAlign = 'center';
+            //     thumbnail.style.color = 'white';
+            //     thumbnail.style.display = 'flex';
+            //     thumbnail.style.alignItems = 'center';
+            //     thumbnail.style.justifyContent = 'center';
+            //     thumbnail.style.fontSize = '14px';
+            //     thumbnail.style.width = '30%';
+            //     thumbnail.style.borderRadius = '10px';
 
 
-                console.log(thumbnail);
-                thumbnailContainer.appendChild(thumbnail);
+            //     console.log(thumbnail);
+            //     thumbnailContainer.appendChild(thumbnail);
 
-                thumbnail.addEventListener('click', function () {
-                    console.log(img)
+            //     thumbnail.addEventListener('click', function () {
+            //         console.log(img)
 
-                    featureImage.style.backgroundColor = img.bg;
-                    featureImage.textContent = img.id;
-                    featureImage.style.textAlign = 'center';
-                    featureImage.style.color = 'white'
-                    featureImage.style.display = 'flex';
-                    featureImage.style.alignItems = 'center';
-                    featureImage.style.justifyContent = 'center';
-                    featureImage.style.fontSize = '24px';
-                })
-            })
+            //         featureImage.style.backgroundColor = img.bg;
+            //         featureImage.textContent = img.id;
+            //         featureImage.style.textAlign = 'center';
+            //         featureImage.style.color = 'white'
+            //         featureImage.style.display = 'flex';
+            //         featureImage.style.alignItems = 'center';
+            //         featureImage.style.justifyContent = 'center';
+            //         featureImage.style.fontSize = '24px';
+            //     })
+            // })
 
-            if (filterImage.length > 0) {
-                const firstImage = filterImage[0];
-                featureImage.style.backgroundColor = firstImage.bg;
-                featureImage.textContent = firstImage.id + ' ' + firstImage.color;
-                featureImage.style.textAlign = 'center';
-                featureImage.style.color = 'white';
-                featureImage.style.display = 'flex';
-                featureImage.style.alignItems = 'center';
-                featureImage.style.justifyContent = 'center';
-                featureImage.style.fontSize = '24px';
-            }
+            // if (filterImage.length > 0) {
+            //     const firstImage = filterImage[0];
+            //     featureImage.style.backgroundColor = firstImage.bg;
+            //     featureImage.textContent = firstImage.id + ' ' + firstImage.color;
+            //     featureImage.style.textAlign = 'center';
+            //     featureImage.style.color = 'white';
+            //     featureImage.style.display = 'flex';
+            //     featureImage.style.alignItems = 'center';
+            //     featureImage.style.justifyContent = 'center';
+            //     featureImage.style.fontSize = '24px';
+            // }
+
+                renderThumbnails(e.target.value);
         })
 
     })
@@ -254,5 +254,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
     leftDiv.appendChild(featureImage);
     leftDiv.appendChild(thumbnailContainer);
+
+    function renderThumbnails(color) {
+        let filterImage = images.filter(image => {
+            return color === "All" || image.color === color.toLowerCase();
+        });
+
+        thumbnailContainer.innerHTML = '';
+        filterImage.forEach(img => {
+            const thumbnail = document.createElement('div');
+            thumbnail.className = img.color;
+            thumbnail.style.backgroundColor = img.bg;
+            thumbnail.style.width = '30%';
+            thumbnail.style.height = '50px';
+            thumbnail.style.border = '1px solid #ccc';
+            thumbnail.style.cursor = 'pointer';
+            thumbnail.textContent = img.id + ' ' + img.color;
+            thumbnail.style.textAlign = 'center';
+            thumbnail.style.color = 'white';
+            thumbnail.style.display = 'flex';
+            thumbnail.style.alignItems = 'center';
+            thumbnail.style.justifyContent = 'center';
+            thumbnail.style.fontSize = '14px';
+            thumbnail.style.borderRadius = '10px';
+
+            thumbnail.addEventListener('click', function () {
+                featureImage.style.backgroundColor = img.bg;
+                featureImage.textContent = img.id + ' ' + img.color;
+                featureImage.style.textAlign = 'center';
+                featureImage.style.color = 'white';
+                featureImage.style.display = 'flex';
+                featureImage.style.alignItems = 'center';
+                featureImage.style.justifyContent = 'center';
+                featureImage.style.fontSize = '24px';
+            });
+
+            thumbnailContainer.appendChild(thumbnail);
+        });
+
+        if (filterImage.length > 0) {
+            const firstImage = filterImage[0];
+            featureImage.style.backgroundColor = firstImage.bg;
+            featureImage.textContent = firstImage.id + ' ' + firstImage.color;
+            featureImage.style.textAlign = 'center';
+            featureImage.style.color = 'white';
+            featureImage.style.display = 'flex';
+            featureImage.style.alignItems = 'center';
+            featureImage.style.justifyContent = 'center';
+            featureImage.style.fontSize = '24px';
+        }
+    }
+
+    renderThumbnails("All");
 
 });
