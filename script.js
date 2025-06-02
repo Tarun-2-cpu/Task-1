@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener('click', function () {
             console.log(button)
 
-                renderThumbnails(color);
+            renderThumbnails(color);
 
             // let filterImage = images.filter(image => {
             //     return color === "All" || image.color === color.toLowerCase();
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
             //     featureImage.style.fontSize = '24px';
             // }
 
-                renderThumbnails(e.target.value);
+            renderThumbnails(e.target.value);
         })
 
     })
@@ -307,4 +307,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderThumbnails("All");
 
+    applyResponsiveStyles();
+
+    function applyResponsiveStyles() {
+        if (window.innerWidth < 768) {
+            // Mobile view
+            leftDiv.style.width = '100%';
+            rightDiv.style.width = '100%';
+            leftDiv.style.height = 'auto';
+            rightDiv.style.height = 'auto';
+            leftDiv.style.float = 'none';
+            rightDiv.style.float = 'none';
+            document.body.style.flexDirection = 'column';
+        } else {
+            // Desktop view
+            leftDiv.style.width = '50%';
+            rightDiv.style.width = '50%';
+            leftDiv.style.height = '100vh';
+            rightDiv.style.height = '100vh';
+            leftDiv.style.float = 'left';
+            rightDiv.style.float = 'right';
+            document.body.style.flexDirection = 'row';
+        }
+    }
+
+    window.addEventListener('resize', applyResponsiveStyles);
 });
+
+
